@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>registraion page</title>
+  <title>registraion edit page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -18,37 +18,37 @@
     <div class="col-sm-6">
     <div class="card bg-light text-dark">
     <div class="container">
-    <h2 style="text-align:center">Registration here</h2>
+    <h2 style="text-align:center">Registration edit</h2>
 
 
-  <form method="post" action="/save">
+  <form method="post" action="/upd">
 
   
   <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Mr Neearj....." name="name">
+      <input type="text" class="form-control" id="name"  value="{{ $data->name }}" placeholder="Mr Neearj....." name="name">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder=" " name="email">
+      <input type="email" class="form-control" id="email"  value="{{ $data->email }}" placeholder=" " name="email">
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="" name="password">
+      <input type="password" class="form-control" id="password"  value="{{ $data->password }}" placeholder="" name="password">
     </div>
     <div class="form-group">
       <label for="mobile">Mobile:</label>
-      <input type="text" class="form-control" id="mobile" placeholder="" name="mobile">
+      <input type="text" class="form-control" id="mobile"  value="{{ $data->mobile }}" placeholder="" name="mobile">
     </div>
 
     <div class="form-group">
       <label for="address">Address:</label>
-      <input type="text" class="form-control" id="address" placeholder="" name="address">
+      <input type="text" class="form-control" id="address"  value="{{ $data->addess }}" placeholder="" name="address">
     </div>
     
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember"> Remember me
+      <input type="hidden"   value="{{ $data->id }}" name="id">
       </label>
     </div>
     @csrf
