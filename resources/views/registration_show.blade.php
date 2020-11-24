@@ -44,7 +44,7 @@
         </form>
         </td>
         <td>
-        <form method="post" action="upd">
+        <form method="post" action="update">
         <input type="hidden"  name="id" value="{{ $data->id }}">
         @csrf
         <button>Update</button>
@@ -54,7 +54,7 @@
         </form>
         </td>
         <td>
-        <form method="#" action="#">
+        <form method="post" action="delete">
         <input type="hidden"  name="id" value="{{ $data->id }}">
         @csrf
         <button>Delete</button>

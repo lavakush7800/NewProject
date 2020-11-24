@@ -14,7 +14,7 @@ class Registration{
         }
     }
 
-    public static function store(){
+    public static function show(){
         $data = Model::all();
         return $data;
     }
@@ -22,7 +22,7 @@ class Registration{
 
     public static function edit(Request $request):bool{
         $id=$request->input('id');
-        $data = Model::where('id',$id)->select('id','name','email','password','mobile','address')->get();
+        $data = Model::where('id',$id)->select("id","name","email","password","mobile","address")->get();
         if($data){
             return true;
         }else{
@@ -30,16 +30,26 @@ class Registration{
         }
     }
 
-    public static function update(Request $request):bool{
-        $id = $request->input('id');
-        $data = [
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'mobile'=>$request->mobile,
-            'address'=>$request->address
-        ];
-        $data = Model::where('id',$id)->update($data);
+    // public static function update(Request $request):bool{
+    //     $id = $request->input('id');
+    //     $data = [
+    //         'name'=>$request->name,
+    //         'email'=>$request->email,
+    //         'password'=>$request->password,
+    //         'mobile'=>$request->mobile,
+    //         'address'=>$request->address
+    //     ];
+    //     $data = Model::where('id',$id)->update($data);
+    //     if($data){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+
+    public static function delete($id):bool{
+        $data = Model::find($id)->delete();
         if($data){
             return true;
         }else{

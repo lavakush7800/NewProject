@@ -21,12 +21,12 @@
     <h2 style="text-align:center">Registration edit</h2>
 
 
-  <form method="post" action="/upd">
+  <form method="post" action="/update">
 
   
   <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name"  value="{{ $data->name }}" placeholder="Mr Neearj....." name="name">
+      <input type="text" class="form-control" id="name"  value="{{ $data->name }}" placeholder=" " name="name">
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
@@ -46,11 +46,7 @@
       <input type="text" class="form-control" id="address"  value="{{ $data->addess }}" placeholder="" name="address">
     </div>
     
-    <div class="form-group form-check">
-      <label class="form-check-label">
-      <input type="hidden"   value="{{ $data->id }}" name="id">
-      </label>
-    </div>
+    <input type="hidden"   value="{{ $data->id }}" name="id">
     @csrf
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>

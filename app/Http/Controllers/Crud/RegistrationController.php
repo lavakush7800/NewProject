@@ -12,6 +12,8 @@ class RegistrationController extends Controller
     public function index(){
         return view('registration');
     }
+
+
     public function get(Request $request){
         $name=$request->input('name');
         $email=$request->input('email');
@@ -28,9 +30,8 @@ class RegistrationController extends Controller
         $data=Registration::get($name,$email,$password,$mobile,$address);
     }
 
-    public function store(){
-         $data = Registration::store();
-
+    public function show(){
+         $data = Registration::show();
         return view('registration_show', compact('data'));
     }
     
@@ -38,22 +39,25 @@ class RegistrationController extends Controller
         $id=$request->input('id');
         $data = Registration::edit(($id));
         return view('registration_edit', compact('data'));
+        
     }
 
-    public function update(Request $request){
-        $id = $request->id;
-        $data = [
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password,
-            'mobile'=>$request->mobile,
-            'address'=>$request->address
-        ];
-        $data = Registration::update($id,$data);
-        return redirect(registration_show);
-    }
-
-    // public function delete(){
-    //     return redirect('registration');
+    // public function update(Request $request){
+    //     $id = $request->id;
+    //     $data = [
+    //         'name'=>$request->name,
+    //         'email'=>$request->email,
+    //         'password'=>$request->password,
+    //         'mobile'=>$request->mobile,
+    //         'address'=>$request->address
+    //     ];
+    //     $data = Registration::update($id,$data);
+    //     return redirect(registration_show);
     // }
+
+    public function delete(Request $request){
+        $id = $request->id;
+        $data = Registration::delete($id);
+        return redirect('registration_show');
+    }
 }

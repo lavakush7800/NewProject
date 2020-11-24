@@ -21,7 +21,12 @@ Route::get('/', function () {
 
 Route::get('registration','Crud\RegistrationController@index');
 Route::post('save','Crud\RegistrationController@get');
-Route::get('registration_show','Crud\RegistrationController@store');
-Route::post('upd','Crud\RegistrationController@edit');
-Route::post('registration_show','Crud\RegistrationController@update');
+Route::get('registration_show','Crud\RegistrationController@show');
+Route::post('update','Crud\RegistrationController@edit');
+// Route::post('registration_show','Crud\RegistrationController@update');
+Route::Post('delete','Crud\RegistrationController@delete');
+
+
+
+Route::get('registration_edit','Crud\RegistrationController@index');
 
