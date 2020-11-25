@@ -28,6 +28,7 @@ class RegistrationController extends Controller
         // Log::info($address);
 
         $data=Registration::get($name,$email,$password,$mobile,$address);
+        return redirect('registration_show');
     }
 
     public function show(){

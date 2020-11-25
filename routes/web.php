@@ -18,6 +18,12 @@ Route::get('/', function () {
 });
 
 
+Route::get('/home', function () {
+    return view('index');
+});
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::get('registration','Crud\RegistrationController@index');
 Route::post('save','Crud\RegistrationController@get');
